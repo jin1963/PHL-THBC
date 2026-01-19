@@ -1,0 +1,188 @@
+:root{
+  --bg:#070707;
+  --card:#0f0f10;
+  --border:#242424;
+  --text:#f2f2f2;
+  --muted:#a6a6a6;
+  --gold:#d7b85a;
+  --gold2:#b8962f;
+  --green:#38d27a;
+  --red:#ff4d4f;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  background:radial-gradient(900px 500px at 20% 0%, #14110a 0%, transparent 60%),
+             radial-gradient(900px 500px at 90% 10%, #121212 0%, transparent 60%),
+             var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans Thai",sans-serif;
+}
+
+.wrap{
+  max-width:980px;
+  margin:24px auto 40px;
+  padding:0 16px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:flex-start;
+  margin-bottom:14px;
+}
+
+.brandBox .brand{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.brandBox .sub{
+  color:var(--muted);
+  margin-top:4px;
+  font-size:13px;
+}
+
+.walletBox{
+  text-align:right;
+  min-width:320px;
+}
+.walletLine{
+  margin-top:8px;
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin-top:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.cardTitle{
+  font-weight:800;
+  margin-bottom:12px;
+  color:var(--gold);
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.kpi{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  background:rgba(0,0,0,.2);
+}
+.kpiLabel{
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:6px;
+}
+.kpiValue{
+  font-size:22px;
+  font-weight:900;
+}
+
+.label{ color:var(--muted); font-size:12px; margin-bottom:6px; }
+.value{ font-weight:700; }
+
+.divider{
+  height:1px;
+  background:var(--border);
+  margin:14px 0;
+}
+
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.row.spaceBetween{ justify-content:space-between; }
+
+.inline{ display:flex; align-items:center; gap:10px; }
+
+.small{ font-size:12px; }
+.muted{ color:var(--muted); }
+.mono{ font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; }
+
+.btn{
+  appearance:none;
+  border:1px solid var(--border);
+  background:#111;
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.15s transform, .15s opacity, .15s border-color;
+}
+.btn:hover{ transform:translateY(-1px); border-color:#333; }
+.btn:disabled{ opacity:.55; cursor:not-allowed; transform:none; }
+
+.btnGold{
+  border-color:rgba(215,184,90,.45);
+  background:linear-gradient(180deg, rgba(215,184,90,.18), rgba(0,0,0,.1));
+  color:var(--gold);
+}
+.btnGreen{
+  border-color:rgba(56,210,122,.45);
+  background:linear-gradient(180deg, rgba(56,210,122,.18), rgba(0,0,0,.1));
+  color:#c9ffe2;
+}
+
+.pill{
+  border:1px solid var(--border);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  color:var(--muted);
+}
+.pillOk{ border-color:rgba(56,210,122,.35); color:#bff6d7; }
+.pillBad{ border-color:rgba(255,77,79,.35); color:#ffd2d2; }
+
+.msgBox{ margin-top:10px; }
+.msg{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px 12px;
+  background:rgba(0,0,0,.25);
+  font-size:13px;
+}
+.msg.ok{ border-color:rgba(56,210,122,.35); color:#bff6d7; }
+.msg.warn{ border-color:rgba(215,184,90,.35); color:#ffe7a8; }
+.msg.bad{ border-color:rgba(255,77,79,.35); color:#ffd2d2; }
+
+.select{
+  background:#0e0e0f;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:8px 10px;
+  font-weight:700;
+}
+
+.foot{
+  margin-top:14px;
+  text-align:center;
+}
+
+@media (max-width: 780px){
+  .top{ flex-direction:column; align-items:stretch; }
+  .walletBox{ text-align:left; min-width:auto; }
+  .grid2{ grid-template-columns:1fr; }
+  .row{ flex-direction:column; align-items:stretch; }
+  .row .btn{ width:100%; }
+}
