@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THBC → PHL Auto-Stake</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./app.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <h1>THBC → PHL Auto-Stake</h1>
+        <p class="sub">BSC Mainnet • Single-page DApp (MetaMask / Bitget)</p>
+      </div>
+      <button id="btnConnect" class="btn primary">Connect Wallet</button>
+    </header>
+
+    <section class="card">
+      <h2>สถานะ</h2>
+      <div class="grid2">
+        <div class="row"><span class="k">Network</span><span id="net" class="v">-</span></div>
+        <div class="row"><span class="k">Wallet</span><span id="wallet" class="v mono">-</span></div>
+        <div class="row"><span class="k">Contract</span><span id="contract" class="v mono">-</span></div>
+      </div>
+      <div id="status" class="status">Not connected</div>
+    </section>
+
+    <section class="card">
+      <h2>Balances</h2>
+      <div class="grid2">
+        <div class="row"><span class="k">THBC in wallet</span><span id="balTHBC" class="v">-</span></div>
+        <div class="row"><span class="k">PHL in wallet</span><span id="balPHL" class="v">-</span></div>
+        <div class="row"><span class="k">THBC allowance</span><span id="allowTHBC" class="v">-</span></div>
+      </div>
+      <button id="btnRefresh" class="btn">Refresh Balances</button>
+    </section>
+
+    <section class="card">
+      <h2>Pool Info</h2>
+      <div class="grid2">
+        <div class="row"><span class="k">Pool ID</span>
+          <input id="poolId" class="inp" type="number" min="1" value="1" />
+        </div>
+        <div class="row"><span class="k">Out token</span><span id="outToken" class="v mono">-</span></div>
+
+        <div class="row"><span class="k">APY</span><span id="apyShow" class="v">-</span></div>
+        <div class="row"><span class="k">Lock</span><span id="lockShow" class="v">-</span></div>
+        <div class="row"><span class="k">Enabled</span><span id="enabledShow" class="v">-</span></div>
+      </div>
+
+      <button id="btnLoadPool" class="btn">Load Pool</button>
+    </section>
+
+    <section class="card">
+      <h2>Buy Package → Auto-Stake</h2>
+
+      <div class="grid2">
+        <div class="row"><span class="k">Package ID</span>
+          <input id="packageId" class="inp" type="number" min="1" value="1" />
+        </div>
+        <div class="row"><span class="k">THBC in</span><span id="pkgTHBC" class="v">-</span></div>
+        <div class="row"><span class="k">PHL principal out</span><span id="pkgOut" class="v">-</span></div>
+        <div class="row"><span class="k">Active</span><span id="pkgActive" class="v">-</span></div>
+      </div>
+
+      <button id="btnLoadPkg" class="btn">Load Package</button>
+
+      <div class="actions">
+        <button id="btnApprove" class="btn">Approve THBC</button>
+        <button id="btnBuy" class="btn primary">Buy & Auto-Stake</button>
+      </div>
+
+      <div id="msgBuy" class="status muted">-</div>
+    </section>
+
+    <section class="card">
+      <h2>Your Stake</h2>
+      <div class="row"><span class="k">Stake count</span><span id="stakeCount" class="v">-</span></div>
+      <button id="btnRefreshStakes" class="btn">Refresh Your Stakes</button>
+
+      <div class="table">
+        <div class="thead">
+          <div>#</div>
+          <div>Principal (PHL)</div>
+          <div>Reward (PHL)</div>
+          <div>Start</div>
+          <div>End</div>
+          <div>Countdown</div>
+          <div>Action</div>
+        </div>
+        <div id="stakesBody" class="tbody"></div>
+      </div>
+
+      <p class="foot">* ต้องอยู่บน BSC Mainnet (chainId 56).</p>
+    </section>
+  </div>
+</body>
+</html>
