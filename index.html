@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THBC → PHL Auto-Stake</title>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- กัน cache: เปลี่ยนเลข v ทุกครั้งที่อัปโหลด -->
+  <script type="module" src="./app.v3.js?v=3"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <h1>THBC → PHL Auto-Stake</h1>
+        <p class="sub">BSC Mainnet (56) • User DApp • single pool (auto-detect)</p>
+      </div>
+      <button id="btnConnect" class="btn primary">Connect Wallet</button>
+    </header>
+
+    <section class="card">
+      <h2>สถานะ</h2>
+      <div class="row">
+        <span class="pill" id="walletPill">❌ ยังไม่เชื่อมต่อ</span>
+        <span class="pill" id="netPill">Network: -</span>
+        <span class="pill" id="poolPill">PoolId: -</span>
+      </div>
+      <div id="msg" class="msg muted">กด Connect Wallet เพื่อเริ่มใช้งาน</div>
+    </section>
+
+    <section class="card">
+      <h2>Pool</h2>
+      <div class="grid2">
+        <div class="box">
+          <div class="label">Term</div>
+          <div class="big">365 days</div>
+        </div>
+        <div class="box">
+          <div class="label">APY</div>
+          <div class="big">30%</div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="row">
+        <div style="flex:1">
+          <div class="label">Select Package (0–9)</div>
+          <select id="packageSelect" class="select" disabled>
+            <option value="">— กรุณาเลือกแพ็คเกจ —</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="muted" style="margin-top:10px">Allowance: <span id="allowText">-</span></div>
+      <div class="muted">THBC Balance: <span id="balText">-</span></div>
+
+      <div class="sep"></div>
+
+      <div class="label">Package Detail</div>
+      <div id="pkgText" class="mono">-</div>
+
+      <div class="row" style="margin-top:12px; gap:12px;">
+        <button id="btnApprove" class="btn" disabled>Approve THBC</button>
+        <button id="btnBuy" class="btn primary" disabled>Buy Package</button>
+        <button id="btnRefresh" class="btn" disabled>Refresh</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Your Stake</h2>
+      <div class="row" style="gap:12px;">
+        <div>
+          <div class="label">Stake Slot</div>
+          <select id="stakeSelect" class="select" disabled>
+            <option value="">-</option>
+          </select>
+        </div>
+        <button id="btnClaim" class="btn primary" disabled>Claim</button>
+      </div>
+
+      <div class="grid2" style="margin-top:12px;">
+        <div class="box">
+          <div class="label">Staked (principal)</div>
+          <div class="big" id="stakeAmount">-</div>
+        </div>
+        <div class="box">
+          <div class="label">Countdown</div>
+          <div class="big" id="countdown">-</div>
+          <div class="muted" id="countdownHint">-</div>
+        </div>
+      </div>
+
+      <div class="muted" style="margin-top:10px">Start: <span id="startTime">-</span></div>
+      <div class="muted">End: <span id="endTime">-</span></div>
+      <div class="muted">Meta: <span id="stakeMeta">-</span></div>
+    </section>
+  </div>
+</body>
+</html>
