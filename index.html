@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THBC → PHL Auto-Stake</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brandBox">
+        <div class="brand">THBC → PHL Auto-Stake</div>
+        <div class="sub">BSC Mainnet (chainId 56) • Single-page User DApp</div>
+      </div>
+
+      <div class="walletBox">
+        <button id="btnConnect" class="btn">Connect Wallet</button>
+        <div class="walletLine">
+          <span id="walletStatus" class="mono muted">❌ Not connected</span>
+          <span id="netStatus" class="pill">Network: -</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="cardTitle">Pool</div>
+
+      <div class="grid2">
+        <div class="kpi">
+          <div class="kpiLabel">Term</div>
+          <div class="kpiValue">365 days</div>
+        </div>
+        <div class="kpi">
+          <div class="kpiLabel">APY</div>
+          <div class="kpiValue">30%</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row spaceBetween">
+        <div style="flex:1;">
+          <div class="label">Select Package (0-9)</div>
+          <select id="packageSelect" class="select" disabled>
+            <option value="">— กรุณาเลือกแพ็คเกจ —</option>
+          </select>
+          <div class="muted small" id="pkgHint">ยังไม่เชื่อมกระเป๋า</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="grid2">
+        <div>
+          <div class="label">Allowance</div>
+          <div id="allowText" class="value mono">-</div>
+          <div class="muted small">PoolId: <span id="poolIdText" class="mono">-</span></div>
+        </div>
+        <div>
+          <div class="label">THBC Balance</div>
+          <div id="balThbcText" class="value mono">-</div>
+          <div class="muted small">PHL Balance: <span id="balPhlText" class="mono">-</span></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <div class="label">Package Detail</div>
+        <div id="pkgText" class="value">-</div>
+        <div class="muted small" id="pkgMeta">-</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row">
+        <button id="btnApprove" class="btn" disabled>Approve THBC</button>
+        <button id="btnBuy" class="btn btnGold" disabled>Buy Package</button>
+        <button id="btnRefresh" class="btn" disabled>Refresh</button>
+      </div>
+
+      <div class="msgBox">
+        <div id="msg" class="msg muted">กด Connect Wallet เพื่อเริ่มใช้งาน</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="cardTitle">Your Stake</div>
+
+      <div class="grid2">
+        <div class="kpi">
+          <div class="kpiLabel">Staked (principal)</div>
+          <div id="stakeAmount" class="kpiValue">-</div>
+          <div class="muted small">อิงจาก getStake(poolId,user,index).principal</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpiLabel">Countdown</div>
+          <div id="countdown" class="kpiValue">-</div>
+          <div id="countdownHint" class="muted small">-</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="grid2">
+        <div>
+          <div class="label">Start</div>
+          <div id="startTime" class="value mono">-</div>
+        </div>
+        <div>
+          <div class="label">End</div>
+          <div id="endTime" class="value mono">-</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row spaceBetween">
+        <div class="inline">
+          <span class="muted small">Stake Slot:</span>
+          <select id="stakeSelect" class="select" disabled>
+            <option value="">-</option>
+          </select>
+        </div>
+
+        <div class="inline">
+          <button id="btnClaim" class="btn btnGreen" disabled>Claim</button>
+        </div>
+      </div>
+
+      <div class="muted small" id="stakeMeta">-</div>
+    </section>
+
+    <footer class="foot muted small">
+      * หน้านี้แสดงเฉพาะฝั่งผู้ใช้ • PoolId fix = 1 • ethers v6 (ESM) • รองรับ MetaMask / Bitget
+    </footer>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
